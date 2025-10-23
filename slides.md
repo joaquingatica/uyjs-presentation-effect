@@ -15,12 +15,18 @@ mdc: true
 ---
 
 <h1>
-  <img src="./images/effect-logo.svg" alt="Effect" style="display: inline; width: 200px;"/>
+  <img src="../images/effect-logo.svg" alt="Effect" style="display: inline; width: 200px;"/>
 </h1>
+
+<v-click>
+
+### **TypeScript for Production**
+
+</v-click>
 
 <br />
 
-Montevideo JavaScript Meetup - Octubre 2025
+Montevideo JavaScript Meetup - Noviembre 2025
 
 > Juan Seveso - Joaquín Gatica
 
@@ -31,75 +37,17 @@ Montevideo JavaScript Meetup - Octubre 2025
 </div>
 
 ---
-layout: two-cols
+src: ./pages/1.intro.md
 ---
 
-# ¿Quiénes somos?
-
-**Juan Seveso**
-
-**Joaquín Gatica**
-
 ---
-layout: cover
+src: ./pages/2.contents.md
 ---
 
-# Agenda
-
-1. Tema 1
-2. Tema 2
-3. ...
-
 ---
-layout: intro
+src: ./pages/3.demo.md
 ---
 
-# Q&A
-
-<div>
-
-Repositorio: <logos-github-icon /> [joaquingatica/mvdjs-presentation-effect](https://github.com/joaquingatica/mvdjs-presentation-effect)
-
-Presentación: <carbon-earth-filled /> [https://mvdjs-presentation-effect.vercel.app](https://mvdjs-presentation-effect.vercel.app)
-
-</div>
-
 ---
-layout: end
+src: ./pages/4.conclusion.md
 ---
-
-# ¡Muchas gracias!
-
-<div>
-
-**Juan Seveso**
-
-<carbon-email /> [juan's email here](mailto:juanemail@test.com)
-
-<br/>
-
-<logos-github-icon /> [https://github.com/juanseveso](https://github.com/juanseveso)
-
-<br/>
-
-<logos-linkedin-icon /> [https://www.linkedin.com/in/juanseveso](https://www.linkedin.com/in/juanseveso)
-
-</div>
-
-<div>
-
-<br />
-
-**Joaquín Gatica**
-
-<carbon-email /> [joaquin@gatica.dev](mailto:joaquin@gatica.dev)
-
-<br/>
-
-<logos-github-icon /> [https://github.com/joaquingatica](https://github.com/joaquingatica)
-
-<br/>
-
-<logos-linkedin-icon /> [https://linkedin.com/in/joaquingatica](https://linkedin.com/in/joaquingatica)
-
-</div>
