@@ -10,11 +10,14 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@effect/platform": "^0.93.0",
+    "@effect/platform-node": "^0.100.0",
     "@iconify-json/logos": "^1.2.9",
     "@iconify-json/twemoji": "^1.2.4",
     "@slidev/cli": "^52.1.0",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
+    "effect": "^3.19.3",
     "slidev-theme-dracula": "^0.2.0",
     "vue": "^3.5.21"
   },

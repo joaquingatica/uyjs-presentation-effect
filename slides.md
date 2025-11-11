@@ -14,16 +14,19 @@ transition: slide-left
 mdc: true
 ---
 
+## TypeScript en producción con
+
 <h1>
   <img src="../images/effect-logo.svg" alt="Effect" style="display: inline; width: 200px;"/>
 </h1>
 
 <v-click>
 
-### **TypeScript for Production**
+#### **Menos convenciones, más expresiones.**
 
 </v-click>
 
+<br />
 <br />
 
 Montevideo JavaScript Meetup - Noviembre 2025
