@@ -17,7 +17,7 @@ mdc: true
 ## TypeScript en producción con
 
 <h1>
-  <img src="../images/effect-logo.svg" alt="Effect" style="display: inline; width: 200px;"/>
+  <img src="/effect-logo.svg" alt="Effect" style="display: inline; width: 200px;"/>
 </h1>
 
 <v-click>
