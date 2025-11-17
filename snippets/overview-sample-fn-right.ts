@@ -32,7 +32,7 @@ const getUserById = (userId: string) =>
     const { getUserById } = yield* DbService
     const user = getUserById(userId)
     if (!user) {
-      yield* Effect.fail(new UserError('User not found'))
+      return yield* Effect.fail(new UserError('User not found'))
     }
     return user
   })
@@ -60,7 +60,7 @@ const sendEmailToUser = (userId: string) =>
       getUserById(userId),
       getEmailTemplate(userId)
     ])
-    return yield* sendEmail(user, template)
+    yield* sendEmail(user, template)
   })
 //#endregion
 

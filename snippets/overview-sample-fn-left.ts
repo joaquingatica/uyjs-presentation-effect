@@ -16,12 +16,12 @@ const sendEmail = (user: User, emailTemplate: string) =>
 //#region snippet
 // (userId: string) => Promise<void>
 const sendEmailToUser = async (userId: string) => {
-  const [user, emailTemplate] = await Promise.all([
+  const [user, template] = await Promise.all([
     getUserById(userId),
     getEmailTemplate(userId)
   ])
 
-  return sendEmail(user, emailTemplate)
+  await sendEmail(user, template)
 }
 //#endregion
 
