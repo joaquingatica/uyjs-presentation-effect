@@ -9,17 +9,18 @@ const getEmailTemplate = (userId: string) =>
   new Promise<string>((resolve) => resolve(`Hello, ${userId}!`))
 
 const sendEmail = (user: User, emailTemplate: string) =>
-  new Promise<boolean>((resolve) => {
+  new Promise<void>((resolve) => {
     resolve()
   })
 
 //#region snippet
-// type: (string) => Promise<void>
+// (userId: string) => Promise<void>
 const sendEmailToUser = async (userId: string) => {
   const [user, emailTemplate] = await Promise.all([
     getUserById(userId),
     getEmailTemplate(userId)
   ])
+
   return sendEmail(user, emailTemplate)
 }
 //#endregion
