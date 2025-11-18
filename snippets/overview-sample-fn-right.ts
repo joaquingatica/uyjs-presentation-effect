@@ -53,7 +53,7 @@ const sendEmail = (user: User, emailTemplate: string) =>
   })
 
 //#region snippet
-// Effect<void, UserError | EmailError, DbService | EmailService>
+// (userId: string) => Effect<void, UserError | EmailError, DbService | EmailService>
 const sendEmailToUser = (userId: string) =>
   Effect.gen(function* () {
     const [user, template] = yield* Effect.all([

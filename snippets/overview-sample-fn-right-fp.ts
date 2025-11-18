@@ -1,4 +1,4 @@
-import { Data, Effect, pipe, Random } from 'effect'
+import { Data, Effect, flow, pipe, Random, Schedule } from 'effect'
 import { runProgramForSlidev } from './global.ts'
 
 type User = { id: string; email: string }
@@ -45,6 +45,7 @@ const sendSms = (user: User) =>
       yield* Effect.fail(new SmsError())
     }
     yield* Effect.log(`SMS sent successfully!`)
+    return SmsResult.Sent
   })
 
 enum SmsResult {
@@ -58,13 +59,8 @@ const sendSmsToUser = (userId: string) =>
   pipe(
     userId,
     getUserById,
-    Effect.andThen(sendSms),
-    // reintentamos hasta 5 veces si falla
-    Effect.retry({ times: 5 }),
+    Effect.andThen((user) => sendSms(user).pipe(Effect.retry({ times: 3 }))),
     Effect.tap(Effect.log('User notified successfully!')),
-    // mapeamos el resultado exitoso al enum
-    Effect.as(SmsResult.Sent),
-    // mapeamos error de SMS al enum, pero propagamos UserError
     Effect.catchTag('SmsError', () => Effect.succeed(SmsResult.Failed))
   )
 //#endregion
