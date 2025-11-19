@@ -1,4 +1,4 @@
-import { Data, Effect, flow, pipe, Random, Schedule } from 'effect'
+import { Data, Effect, pipe, Random } from 'effect'
 import { runProgramForSlidev } from './global.ts'
 
 type User = { id: string; email: string }
@@ -59,7 +59,8 @@ const sendSmsToUser = (userId: string) =>
   pipe(
     userId,
     getUserById,
-    Effect.andThen((user) => sendSms(user).pipe(Effect.retry({ times: 3 }))),
+    Effect.andThen(sendSms),
+    Effect.retry({ times: 3 }),
     Effect.tap(Effect.log('User notified successfully!')),
     Effect.catchTag('SmsError', () => Effect.succeed(SmsResult.Failed))
   )
