@@ -1,7 +1,10 @@
-import { Effect, Random } from 'effect'
+import { Brand, Effect, Random } from 'effect'
 import { runProgramForSlidev } from './global.ts'
 
 type User = { id: string; email: string }
+
+export type UserId = string & Brand.Brand<'UserId'>
+export const UserId = Brand.nominal<UserId>()
 
 class UserError extends Error {}
 class EmailError extends Error {}
@@ -27,7 +30,7 @@ class EmailService extends Effect.Service<EmailService>()('app/EmailService', {
   })
 }) {}
 
-const getUserById = (userId: string) =>
+const getUserById = (userId: UserId) =>
   Effect.gen(function* () {
     const { getUserById } = yield* DbService
     const user = getUserById(userId)
@@ -37,7 +40,7 @@ const getUserById = (userId: string) =>
     return user
   })
 
-const getEmailTemplate = (userId: string) =>
+const getEmailTemplate = (userId: UserId) =>
   Effect.gen(function* () {
     return `Hello, ${userId}!`
   })
@@ -54,7 +57,7 @@ const sendEmail = (user: User, emailTemplate: string) =>
 
 //#region snippet
 // Effect<void, UserError | EmailError, DbService | EmailService>
-const sendEmailToUser = (userId: string) =>
+const sendEmailToUser = (userId: UserId) =>
   Effect.gen(function* () {
     const [user, template] = yield* Effect.all([
       getUserById(userId),
@@ -64,10 +67,10 @@ const sendEmailToUser = (userId: string) =>
   })
 //#endregion
 
-const program = (userId: string) => sendEmailToUser(userId)
+const program = (userId: UserId) => sendEmailToUser(userId)
 
 runProgramForSlidev(console)(
-  program('some-id').pipe(
+  program(UserId('some-id')).pipe(
     Effect.provide(DbService.Default),
     Effect.provide(EmailService.Default)
   )
